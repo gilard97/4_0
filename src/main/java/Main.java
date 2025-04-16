@@ -14,20 +14,46 @@ class Main {
     try {
       Service s = new Service();
       Scanner Scanner = new Scanner(System.in);
+      boolean wybor = true;
+
+      while (wybor){
+        System.out.println("menu");
+        System.out.println("1. Dodaj studenta");
+        System.out.println("2. Wyświetl studentów");
+        System.out.println("3. Wyjdź");
+        System.out.print("Wybierz opcję: ");
+        int choice = Scanner.nextInt();
+        Scanner.nextLine();
       
+      switch (choice){
+          
+        case 1:
       System.out.println("Dodaje nowego studenta");
       System.out.println("Imie: ");
       String name = Scanner.next();
       System.out.println("Wiek: ");
       int wiek = Integer.parseInt(Scanner.next());
       s.addStudent(new Student(name, wiek));
-      
+      break;
+
+      case 2:
       var students = s.getStudents();
       for(Student current : students) {
         System.out.println(current.ToString());
       }
-    } catch (IOException e) {
+      break;
 
+      case 3:
+          System.out.println("Wychodze z programu");
+          Scanner.close();
+          return;
+          
+      }
+
+
+      }
+    } catch (IOException e) {
+    
     }
   }
-}
+  }
